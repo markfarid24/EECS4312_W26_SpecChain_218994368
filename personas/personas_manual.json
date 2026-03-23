@@ -1,22 +1,144 @@
-{  "personas": [
+{
+  "personas": [
     {
       "id": "P1",
-      "name": "Frequent Activity Tracker",
-      "description": "A user who relies on the app to log workouts frequently and expects stable performance.",
+      "name": "Anxious Student Seeking Fast Relief",
+      "description": "A student or young adult who uses Wysa to manage anxiety, stress, overthinking, and emotional overwhelm through quick, accessible coping support.",
       "derived_from_group": "G1",
       "goals": [
-        "Track workouts consistently",
-        "Log activity quickly"      ],
+        "Reduce anxiety during stressful moments",
+        "Access coping techniques quickly",
+        "Feel calmer and more in control of thoughts"
+      ],
       "pain_points": [
-        "App crashes during logging",
-        "Workout data sometimes disappears"      ],
+        "Experiences anxiety spikes and stress overload",
+        "Cannot always identify the exact cause of distress",
+        "Needs support immediately rather than later"
+      ],
       "context": [
-        "Logging activities immediately after workouts",
-        "Using the app during outdoor exercise"      ],
+        "Uses the app during stressful days, study pressure, or emotional overwhelm",
+        "Often opens the app in short sessions when anxious thoughts increase"
+      ],
       "constraints": [
-        "Logging must be reliable",
-        "Data should not be lost"       ],
+        "Support must be quick to access",
+        "Exercises should be practical and easy to follow during distress"
+      ],
       "evidence_reviews": [
-        "rev_12",
-        "rev_45"      ]
-    }  ] }
+        "f9762037-2e2c-4654-9ade-61e0b91d06b9",
+        "57877b58-2bef-4264-8d96-f911f020dd3a"
+      ]
+    },
+    {
+      "id": "P2",
+      "name": "User Recovering from Depression and Negative Thought Cycles",
+      "description": "A user dealing with depression, emotional pain, or recurring negative thoughts who relies on Wysa for reflection, encouragement, and mental health recovery support.",
+      "derived_from_group": "G2",
+      "goals": [
+        "Interrupt negative thought patterns",
+        "Get support during depressive episodes",
+        "Build a more positive and stable mindset"
+      ],
+      "pain_points": [
+        "Struggles with persistent negative thoughts",
+        "May feel emotionally low, hopeless, or overwhelmed",
+        "Needs a supportive tool between harder moments"
+      ],
+      "context": [
+        "Uses the app during mental health recovery and emotionally difficult periods",
+        "May rely on the app when professional support is unavailable or delayed"
+      ],
+      "constraints": [
+        "Support should feel compassionate and safe",
+        "Advice should be sensitive to serious mental health situations"
+      ],
+      "evidence_reviews": [
+        "23ce028d-1930-405b-9902-ad00dc0e1e72",
+        "53074c8e-8e93-4c7e-bdaa-4c943dd05398"
+      ]
+    },
+    {
+      "id": "P3",
+      "name": "User Seeking a Safe Non-Judgmental Companion",
+      "description": "A user who values Wysa as a private, judgment-free space to talk, vent, reflect, and feel heard when other support is not available.",
+      "derived_from_group": "G3",
+      "goals": [
+        "Have someone or something available to talk to anytime",
+        "Express feelings without fear of judgment",
+        "Feel emotionally supported and listened to"
+      ],
+      "pain_points": [
+        "Does not always have a trusted person available",
+        "Needs privacy when discussing difficult feelings",
+        "May feel isolated or uncomfortable opening up to others"
+      ],
+      "context": [
+        "Uses the app alone, often during emotionally difficult moments",
+        "May turn to the app late at night or when immediate human support is unavailable"
+      ],
+      "constraints": [
+        "Conversations should feel emotionally safe",
+        "The app should maintain a supportive and non-judgmental tone"
+      ],
+      "evidence_reviews": [
+        "74054788-8e3d-4ff5-b32f-9fdf07239067",
+        "07eeb274-9d04-46e0-9faa-235c2d4e755f"
+      ]
+    },
+    {
+      "id": "P4",
+      "name": "Budget-Conscious User Evaluating Free vs Paid Value",
+      "description": "A user whose satisfaction depends heavily on whether useful Wysa features are available without unexpected paywalls, pricing frustration, or unclear subscription value.",
+      "derived_from_group": "G4",
+      "goals": [
+        "Access meaningful mental health support at low cost",
+        "Understand which features are free and which are paid",
+        "Decide whether premium features are worth the price"
+      ],
+      "pain_points": [
+        "Feels frustrated when important features are locked behind payment",
+        "May perceive the app as too expensive",
+        "Wants transparent pricing and feature access"
+      ],
+      "context": [
+        "Explores the app while comparing free and premium support options",
+        "May be trying the app before deciding whether to subscribe"
+      ],
+      "constraints": [
+        "Pricing and feature access must be clearly explained",
+        "Essential support should not feel misleadingly unavailable"
+      ],
+      "evidence_reviews": [
+        "5e652fcf-626a-4df5-b3f1-e6509927ce9a",
+        "3658555c-0fca-4316-bb2d-a72bc4f6633f"
+      ]
+    },
+    {
+      "id": "P5",
+      "name": "User Frustrated by Repetition, Weak Memory, or App Quality Issues",
+      "description": "A user who wants helpful, coherent, and reliable AI support but becomes dissatisfied when conversations feel repetitive, shallow, forgetful, or technically frustrating.",
+      "derived_from_group": "G5",
+      "goals": [
+        "Receive relevant and varied responses",
+        "Have conversations that feel coherent over time",
+        "Use an app that works reliably without frustration"
+      ],
+      "pain_points": [
+        "Experiences repetitive or redundant AI responses",
+        "Feels the app does not remember prior conversations well",
+        "May encounter usability or quality issues that reduce trust"
+      ],
+      "context": [
+        "Uses the app repeatedly over time and notices conversation quality patterns",
+        "Compares the app's usefulness against expectations for intelligent emotional support"
+      ],
+      "constraints": [
+        "Responses should feel context-aware and non-repetitive",
+        "The app should behave consistently and reliably"
+      ],
+      "evidence_reviews": [
+        "6e9994a0-5c64-41e4-87ae-ff77bb2e4202",
+        "f4fdd2f3-59fd-43c4-8086-dc4f0f2ba3bb"
+      ]
+    }
+  ]
+}

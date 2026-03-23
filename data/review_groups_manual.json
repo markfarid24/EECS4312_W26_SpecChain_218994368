@@ -2,11 +2,103 @@
   "groups": [
     {
       "group_id": "G1",
-      "theme": "App crashes during activity logging, THIS IS A AN EXAMPLE, PLEASE REMOVE ",
-      "review_ids": ["rev_12", "rev_33", "rev_45", "rev_89"],
+      "theme": "Users seeking anxiety and stress relief",
+      "review_ids": [
+        "f9762037-2e2c-4654-9ade-61e0b91d06b9",
+        "57877b58-2bef-4264-8d96-f911f020dd3a",
+        "cb4efd4e-8e34-4c62-a078-ed1bc2159a58",
+        "c1dd9db8-30c9-4efa-ba01-81a9ce0f679c",
+        "104198f2-04df-4d49-8ebb-352e5177424d",
+        "e29e8e7b-63ab-4d86-8cbf-6a1ac15a6efa",
+        "26733df0-fe00-437a-bdcf-02010058a005",
+        "1fcfcc44-bb85-4f36-b895-b9874884f1d8",
+        "20a34aad-cedf-4188-a521-c18ed19d44dc",
+        "ed00aa78-fd2a-4076-9036-bcf285cdeb49"
+      ],
       "example_reviews": [
-        "The app crashes every time I log my run.",
-        "Logging workouts causes the app to freeze."
+        "It's very very helpful especially when you cannot pinpoint the cause of your anxiety or stress.",
+        "I love that this utilizes CBT techniques that help break negative thought cycles and relieve anxiety."
+      ]
+    },
+    {
+      "group_id": "G2",
+      "theme": "Users seeking support for depression, negative thoughts, and emotional recovery",
+      "review_ids": [
+        "23ce028d-1930-405b-9902-ad00dc0e1e72",
+        "53074c8e-8e93-4c7e-bdaa-4c943dd05398",
+        "6f974e0f-ac0d-4158-b3eb-575122101239",
+        "adb4279a-002b-4af1-9738-8e7f0e349bba",
+        "41e94338-64ac-44ff-a693-08ffb58f763a",
+        "6dae18e8-00a4-4a1d-93f9-8727b934dccb",
+        "f3be92ac-108c-42ec-bfcc-3e26c9585cc7",
+        "031051be-e3f5-4d4c-91c8-e48544c6c8d3",
+        "685fcf45-ccaf-442c-bf66-e87b95ba3dc1",
+        "acd31594-b29f-4500-84a3-c372c4f3d211"
+      ],
+      "example_reviews": [
+        "This really helped me turn my negative thoughts into a positive mindset.",
+        "This app has been really helpful towards my mental health recovery."
+      ]
+    },
+    {
+      "group_id": "G3",
+      "theme": "Users wanting a safe, non-judgmental companion to talk to",
+      "review_ids": [
+        "74054788-8e3d-4ff5-b32f-9fdf07239067",
+        "07eeb274-9d04-46e0-9faa-235c2d4e755f",
+        "3133bca6-0110-4244-a19d-90d22bf1bbdb",
+        "482ec809-c964-4108-a4ec-adda3ab62673",
+        "ba132535-030a-4361-9171-b79fe9d51156",
+        "230c65f9-a6b5-4bec-8396-28491aa23365",
+        "099c1e31-8d97-4e3e-816d-08bb722fcaaa",
+        "79a49fbc-d3fc-48e6-ae8f-f078ad613ca6",
+        "8124ded1-152d-4e5d-88ac-e2999bd1d15e",
+        "a3ea9a98-6bbb-4223-bba2-26177981b11c"
+      ],
+      "example_reviews": [
+        "It feels like having someone there when I need to talk.",
+        "This app gives me a safe place to express my thoughts without judgment."
+      ]
+    },
+    {
+      "group_id": "G4",
+      "theme": "Users sensitive to pricing, subscriptions, and paywalled features",
+      "review_ids": [
+        "5e652fcf-626a-4df5-b3f1-e6509927ce9a",
+        "3658555c-0fca-4316-bb2d-a72bc4f6633f",
+        "20a34aad-cedf-4188-a521-c18ed19d44dc",
+        "031051be-e3f5-4d4c-91c8-e48544c6c8d3",
+        "81f27898-3385-4455-9b8c-17425c1db1f0",
+        "fe447540-20b2-4525-b557-c4c6072edef6",
+        "56b34d1e-932f-4799-8163-613efc1bd4ce",
+        "abc3b766-f14f-4d40-8a53-1fe3f026f1cd",
+        "e7081ee3-8de0-49d3-90a6-217a48ed0082",
+        "44c20aa6-6a9e-47cb-bd55-b0df5dbcc579"
+      ],
+      "example_reviews": [
+        "Do not install this app if you are searching for something free because this is paid.",
+        "Very easy to use and good sounding board for free."
+      ]
+    },
+    {
+      "group_id": "G5",
+      "theme": "Users frustrated by repetitive AI responses or app quality issues",
+      "review_ids": [
+        "6e9994a0-5c64-41e4-87ae-ff77bb2e4202",
+        "f4fdd2f3-59fd-43c4-8086-dc4f0f2ba3bb",
+        "c93bb1af-e10c-4b28-a172-e2c9c817aaa2",
+        "8050720c-1ad1-49b5-8e0d-edef3c2159e8",
+        "002c5abb-e1e7-4a57-94cf-f9a449a92cab",
+        "f5c06977-d504-4779-aa19-9bc926bef7e4",
+        "b397ea18-859a-48f2-8dc2-815c2c1c251c",
+        "266d3ac7-1da1-49eb-b08c-c5d368176e60",
+        "5234d788-143a-4c45-81db-60231b9b5880",
+        "f8f924d7-5e60-42eb-8d1f-0b06581f82cf"
+      ],
+      "example_reviews": [
+        "So far not so great. It's redundant and repetitive.",
+        "It's a really good app but it would be better if it remembers every conversation."
       ]
     }
-  ]}
+  ]
+}

@@ -1,16 +1,226 @@
-
 {
   "tests": [
     {
-      "test_id": "T_auto_1",
+      "test_id": "T_manual_1",
       "requirement_id": "FR1",
-      "scenario": "Workout Logging Stability",
+      "scenario": "Open anxiety support in two taps from home screen",
       "steps": [
-        "Open the workout logging screen",
-        "Enter workout details",
-        "Submit the workout"
+        "Launch the app and stay on the home screen",
+        "Count the taps needed to reach anxiety or stress support",
+        "Select the anxiety or stress support option"
       ],
-      "expected_result": "The workout is saved successfully and the application remains stable."
+      "expected_result": "The user can open an anxiety or stress support session in no more than 2 taps."
+    },
+    {
+      "test_id": "T_manual_2",
+      "requirement_id": "FR1",
+      "scenario": "Verify anxiety support is directly accessible from main interface",
+      "steps": [
+        "Launch the app",
+        "Inspect the main interface for an anxiety or stress support entry point",
+        "Attempt to open support from the visible main interface controls"
+      ],
+      "expected_result": "An anxiety or stress support option is available from the main interface and can be opened in no more than 2 taps."
+    },
+    {
+      "test_id": "T_manual_3",
+      "requirement_id": "FR2",
+      "scenario": "Display at least three coping options during anxiety support",
+      "steps": [
+        "Launch the app",
+        "Start an anxiety or stress support session",
+        "View the available coping options"
+      ],
+      "expected_result": "At least 3 distinct coping options are displayed, including options such as breathing, grounding, or CBT-based reflection."
+    },
+    {
+      "test_id": "T_manual_4",
+      "requirement_id": "FR2",
+      "scenario": "Verify coping options are distinct and selectable",
+      "steps": [
+        "Open an anxiety or stress support session",
+        "Review the listed coping options",
+        "Select each option one by one"
+      ],
+      "expected_result": "At least 3 distinct coping options are available and each option can be selected successfully."
+    },
+    {
+      "test_id": "T_manual_5",
+      "requirement_id": "FR3",
+      "scenario": "Submit a negative thought and receive a reframing prompt",
+      "steps": [
+        "Open the thought reflection feature",
+        "Enter a negative thought",
+        "Submit the thought for reflection"
+      ],
+      "expected_result": "The system returns a structured reframing prompt or reflection exercise after the negative thought is submitted."
+    },
+    {
+      "test_id": "T_manual_6",
+      "requirement_id": "FR3",
+      "scenario": "Verify thought reframing works with a different negative input",
+      "steps": [
+        "Open the thought reflection feature",
+        "Enter a second negative thought with different wording",
+        "Submit the thought"
+      ],
+      "expected_result": "The system provides a structured reframing prompt or reflection exercise for the submitted thought."
+    },
+    {
+      "test_id": "T_manual_7",
+      "requirement_id": "FR4",
+      "scenario": "Supportive response for user reporting low mood",
+      "steps": [
+        "Start a conversational support session",
+        "Enter a message stating the user feels emotionally low",
+        "Review the system response"
+      ],
+      "expected_result": "The response uses supportive language and does not contain dismissive or mocking wording."
+    },
+    {
+      "test_id": "T_manual_8",
+      "requirement_id": "FR4",
+      "scenario": "Supportive response for user describing emotional distress",
+      "steps": [
+        "Start a conversational support session",
+        "Enter a message describing emotional distress",
+        "Review the system response"
+      ],
+      "expected_result": "The response is supportive in tone and does not contain dismissive, blaming, or mocking language."
+    },
+    {
+      "test_id": "T_manual_9",
+      "requirement_id": "FR5",
+      "scenario": "Begin private conversational session immediately",
+      "steps": [
+        "Launch the app",
+        "Choose the option to talk or begin a conversation",
+        "Attempt to start a private conversational session"
+      ],
+      "expected_result": "The user can begin a conversational support session immediately without requiring another human participant."
+    },
+    {
+      "test_id": "T_manual_10",
+      "requirement_id": "FR5",
+      "scenario": "Verify no human participant is required to start chat support",
+      "steps": [
+        "Launch the app",
+        "Navigate to the conversational support feature",
+        "Start a session without inviting or connecting to another person"
+      ],
+      "expected_result": "The conversation starts successfully without requiring another user or therapist to join."
+    },
+    {
+      "test_id": "T_manual_11",
+      "requirement_id": "FR6",
+      "scenario": "Non-judgmental tone during normal conversation",
+      "steps": [
+        "Start a conversational support session",
+        "Enter a personal emotional concern",
+        "Review the system reply"
+      ],
+      "expected_result": "The system reply avoids insulting, blaming, or shaming language and maintains a supportive tone."
+    },
+    {
+      "test_id": "T_manual_12",
+      "requirement_id": "FR6",
+      "scenario": "Non-judgmental tone during vulnerable disclosure",
+      "steps": [
+        "Start a conversational support session",
+        "Enter a message describing a vulnerable or embarrassing feeling",
+        "Review the system reply"
+      ],
+      "expected_result": "The reply remains supportive and non-judgmental and does not shame or blame the user."
+    },
+    {
+      "test_id": "T_manual_13",
+      "requirement_id": "FR7",
+      "scenario": "Show feature access status before feature selection",
+      "steps": [
+        "Open the feature browsing interface",
+        "Review the list of major app features",
+        "Check whether each visible feature shows its access status"
+      ],
+      "expected_result": "Each major feature is labeled as free, trial-based, or premium before the user attempts to access it."
+    },
+    {
+      "test_id": "T_manual_14",
+      "requirement_id": "FR7",
+      "scenario": "Verify premium feature is labeled before access attempt",
+      "steps": [
+        "Open the feature list",
+        "Find a premium feature",
+        "Check the feature label before selecting it"
+      ],
+      "expected_result": "The premium feature is clearly labeled as premium before the user attempts to access it."
+    },
+    {
+      "test_id": "T_manual_15",
+      "requirement_id": "FR8",
+      "scenario": "Display price and billing details before purchase confirmation",
+      "steps": [
+        "Select a premium upgrade option",
+        "Proceed to the purchase screen",
+        "Review the information shown before confirmation"
+      ],
+      "expected_result": "The subscription price, billing period, and trial status are displayed before the user confirms the purchase."
+    },
+    {
+      "test_id": "T_manual_16",
+      "requirement_id": "FR8",
+      "scenario": "Verify user can see trial status before subscribing",
+      "steps": [
+        "Select a premium subscription option",
+        "Open the purchase screen",
+        "Inspect the displayed subscription details"
+      ],
+      "expected_result": "The purchase screen displays the price, billing period, and whether a trial is included before confirmation."
+    },
+    {
+      "test_id": "T_manual_17",
+      "requirement_id": "FR9",
+      "scenario": "Avoid repeating same support message in three turns",
+      "steps": [
+        "Start a conversational support session",
+        "Send three consecutive user messages in the same conversation",
+        "Compare the three system responses"
+      ],
+      "expected_result": "The same support message is not repeated within 3 consecutive conversational turns unless the user requests repetition."
+    },
+    {
+      "test_id": "T_manual_18",
+      "requirement_id": "FR9",
+      "scenario": "Allow repetition only when user asks for it",
+      "steps": [
+        "Start a conversational support session",
+        "Ask the system to repeat earlier advice",
+        "Review the repeated response"
+      ],
+      "expected_result": "A repeated support message is only allowed when the user explicitly requests repetition."
+    },
+    {
+      "test_id": "T_manual_19",
+      "requirement_id": "FR10",
+      "scenario": "Maintain current session context across conversation",
+      "steps": [
+        "Start a conversational support session",
+        "Tell the system a specific personal concern",
+        "Refer back to that concern in a later message",
+        "Review the system response"
+      ],
+      "expected_result": "The system response remains consistent with the earlier user input from the current session."
+    },
+    {
+      "test_id": "T_manual_20",
+      "requirement_id": "FR10",
+      "scenario": "Interpret later message using earlier session information",
+      "steps": [
+        "Start a conversational support session",
+        "Provide a specific context detail in the first message",
+        "Ask a follow-up question that depends on that earlier detail",
+        "Review the system response"
+      ],
+      "expected_result": "The system interprets the follow-up question consistently using information already shared in the current session."
     }
   ]
 }
