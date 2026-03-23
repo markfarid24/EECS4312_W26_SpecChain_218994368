@@ -1,0 +1,27 @@
+{
+  "app_name": "Wysa: Mental Wellbeing AI",
+  "app_id": "bot.touchkin",
+  "source": "Google Play Store",
+  "collection_method": "Collected programmatically using google-play-scraper",
+  "raw_review_count": 2000,
+  "deduplicated_review_count": 2000,
+  "clean_review_count": 1650,
+  "filters": {
+    "removed_empty_reviews": 11,
+    "removed_extremely_short_reviews": 339,
+    "minimum_words_required": 3
+  },
+  "cleaning_steps": [
+    "removed duplicates",
+    "removed empty entries",
+    "removed extremely short reviews",
+    "removed punctuation",
+    "removed special characters and emojis",
+    "converted numbers to text",
+    "removed extra whitespace",
+    "converted text to lowercase",
+    "removed stop words",
+    "lemmatized reviews"
+  ],
+  "notes": "Target app assigned by family-name initial. Review extraction performed on Google Play. If store/tool limits existed, maximum obtainable reviews were collected."
+}
