@@ -1,0 +1,144 @@
+{
+  "personas": [
+    {
+      "id": "AP1",
+      "name": "Alex",
+      "description": "A young adult seeking emotional support and comfort during difficult times",
+      "derived_from_group": "A1",
+      "goals": [
+        "Find emotional support",
+        "Feel comforted and understood",
+        "Improve mental well-being"
+      ],
+      "pain_points": [
+        "Feeling lonely and isolated",
+        "Struggling to cope with emotions",
+        "Difficulty finding reliable support"
+      ],
+      "context": [
+        "Recently experienced a loss or traumatic event",
+        "Feeling overwhelmed and stressed"
+      ],
+      "constraints": [
+        "Limited access to in-person support",
+        "Prefer anonymous support"
+      ],
+      "evidence_reviews": [
+        "375717b4-1c62-4b58-b8e2-ca556fd1b06d",
+        "05a3b692-2ae8-47ae-8f0e-0f13ea35bceb"
+      ]
+    },
+    {
+      "id": "AP2",
+      "name": "Mia",
+      "description": "An individual experiencing anxiety and stress, seeking relief and coping mechanisms",
+      "derived_from_group": "A2",
+      "goals": [
+        "Reduce anxiety and stress",
+        "Improve mental clarity",
+        "Develop coping strategies"
+      ],
+      "pain_points": [
+        "Feeling anxious and overwhelmed",
+        "Difficulty managing stress",
+        "Seeking effective coping mechanisms"
+      ],
+      "context": [
+        "Experiencing work or school-related stress",
+        "Dealing with relationship issues"
+      ],
+      "constraints": [
+        "Limited time for self-care",
+        "Prefer convenient and accessible support"
+      ],
+      "evidence_reviews": [
+        "acb200f9-a748-4f28-9cd1-1d7918617197",
+        "241724da-c8b7-4ab8-b29e-d972d81fbc40"
+      ]
+    },
+    {
+      "id": "AP3",
+      "name": "Eva",
+      "description": "A person focused on cultivating appreciation and gratitude for a more positive outlook",
+      "derived_from_group": "A3",
+      "goals": [
+        "Practice gratitude and positivity",
+        "Improve mental well-being",
+        "Develop a more optimistic mindset"
+      ],
+      "pain_points": [
+        "Feeling negative or ungrateful",
+        "Struggling to find positivity",
+        "Seeking ways to improve mental health"
+      ],
+      "context": [
+        "Recently experienced a positive event or milestone",
+        "Seeking personal growth and self-improvement"
+      ],
+      "constraints": [
+        "Prefer flexible and self-paced support",
+        "Limited experience with mindfulness or gratitude practices"
+      ],
+      "evidence_reviews": [
+        "42051e49-40c4-4f20-9def-8ecc1f231c06",
+        "6682a523-8092-4513-ac8c-cb52265a4a1b"
+      ]
+    },
+    {
+      "id": "AP4",
+      "name": "Jamie",
+      "description": "A critical user with negative experiences, seeking improvement and resolution",
+      "derived_from_group": "A4",
+      "goals": [
+        "Resolve issues with the app",
+        "Improve user experience",
+        "Find alternative solutions"
+      ],
+      "pain_points": [
+        "Frustrated with app functionality",
+        "Disappointed with customer support",
+        "Seeking better alternatives"
+      ],
+      "context": [
+        "Recently experienced a negative event or issue with the app",
+        "Feeling frustrated or disappointed"
+      ],
+      "constraints": [
+        "Limited patience for troubleshooting",
+        "Prefer clear and responsive communication"
+      ],
+      "evidence_reviews": [
+        "6a6cb8ef-0594-4e2d-bdb3-977c4de2b775",
+        "243847c7-aaf1-4918-b163-e49851686aea"
+      ]
+    },
+    {
+      "id": "AP5",
+      "name": "Sam",
+      "description": "An individual recovering from depression and mental health challenges, seeking support and resources",
+      "derived_from_group": "A5",
+      "goals": [
+        "Recover from depression and mental health challenges",
+        "Improve mental well-being",
+        "Find supportive resources"
+      ],
+      "pain_points": [
+        "Struggling with depression and mental health",
+        "Seeking effective support and resources",
+        "Feeling isolated or disconnected"
+      ],
+      "context": [
+        "Recently experienced a mental health crisis or episode",
+        "Seeking ongoing support and resources"
+      ],
+      "constraints": [
+        "Prefer accessible and stigma-free support",
+        "Limited access to in-person resources"
+      ],
+      "evidence_reviews": [
+        "f3be92ac-108c-42ec-bfcc-3e26c9585cc7",
+        "1579534a-8a85-42e1-9287-cf0382b13157"
+      ]
+    }
+  ]
+}

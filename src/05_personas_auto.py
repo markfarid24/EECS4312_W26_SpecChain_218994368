@@ -12,6 +12,7 @@ MODEL_NAME = "meta-llama/llama-4-scout-17b-16e-instruct"
 INPUT_FILE = "data/reviews_clean.jsonl"
 OUTPUT_FILE = "data/review_groups_auto.json"
 PROMPT_FILE = "prompts/prompt_auto.json"
+PERSONAS_OUTPUT_FILE = "personas/personas_auto.json"
 
 MAX_REVIEWS_FOR_GROUPING = 150
 TARGET_GROUPS = 5
@@ -150,6 +151,95 @@ def save_json(path, data):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
+def build_persona_prompt(groups_json):
+    prompt = f"""
+You are helping with requirements engineering analysis for a mental health app called Wysa.
+
+Task:
+Using the review groups below, generate exactly one persona per review group.
+
+Return ONLY valid JSON in this exact structure:
+{{
+  "personas": [
+    {{
+      "id": "AP1",
+      "name": "short persona name",
+      "description": "persona summary",
+      "derived_from_group": "A1",
+      "goals": ["goal 1", "goal 2", "goal 3"],
+      "pain_points": ["pain point 1", "pain point 2", "pain point 3"],
+      "context": ["context 1", "context 2"],
+      "constraints": ["constraint 1", "constraint 2"],
+      "evidence_reviews": ["review_id_1", "review_id_2"]
+    }}
+  ]
+}}
+
+Rules:
+- Output exactly one persona per group
+- Use persona IDs AP1, AP2, AP3, AP4, AP5
+- derived_from_group must match the review group ID exactly
+- evidence_reviews must use review_ids that appear in the corresponding group
+- Do not include markdown fences
+- Return JSON only
+- Make the personas realistic, distinct, and grounded in the review-group themes
+
+Review groups:
+{json.dumps(groups_json, ensure_ascii=False, indent=2)}
+""".strip()
+    return prompt
+
+def validate_personas(result, groups_json):
+    if "personas" not in result or not isinstance(result["personas"], list):
+        raise ValueError("Output JSON must contain a 'personas' list.")
+
+    groups = groups_json["groups"]
+    if len(result["personas"]) != len(groups):
+        raise ValueError("Number of personas must equal number of groups.")
+
+    valid_group_ids = {g["group_id"] for g in groups}
+    group_to_reviews = {g["group_id"]: set(g["review_ids"]) for g in groups}
+
+    seen_persona_ids = set()
+    seen_group_refs = set()
+
+    for p in result["personas"]:
+        required = [
+            "id", "name", "description", "derived_from_group",
+            "goals", "pain_points", "context", "constraints", "evidence_reviews"
+        ]
+        for field in required:
+            if field not in p:
+                raise ValueError(f"Persona missing required field: {field}")
+
+        if p["id"] in seen_persona_ids:
+            raise ValueError(f"Duplicate persona id: {p['id']}")
+        seen_persona_ids.add(p["id"])
+
+        group_id = p["derived_from_group"]
+        if group_id not in valid_group_ids:
+            raise ValueError(f"Invalid derived_from_group: {group_id}")
+        if group_id in seen_group_refs:
+            raise ValueError(f"More than one persona derived from group {group_id}")
+        seen_group_refs.add(group_id)
+
+        if not isinstance(p["goals"], list) or len(p["goals"]) < 2:
+            raise ValueError(f"Persona {p['id']} must have at least 2 goals.")
+        if not isinstance(p["pain_points"], list) or len(p["pain_points"]) < 2:
+            raise ValueError(f"Persona {p['id']} must have at least 2 pain points.")
+        if not isinstance(p["context"], list) or len(p["context"]) < 1:
+            raise ValueError(f"Persona {p['id']} must have context.")
+        if not isinstance(p["constraints"], list) or len(p["constraints"]) < 1:
+            raise ValueError(f"Persona {p['id']} must have constraints.")
+        if not isinstance(p["evidence_reviews"], list) or len(p["evidence_reviews"]) < 2:
+            raise ValueError(f"Persona {p['id']} must have at least 2 evidence reviews.")
+
+        valid_reviews = group_to_reviews[group_id]
+        for rid in p["evidence_reviews"]:
+            if rid not in valid_reviews:
+                raise ValueError(
+                    f"Persona {p['id']} uses evidence review {rid} not found in group {group_id}."
+                )
 
 def main():
     reviews = load_reviews(INPUT_FILE)
@@ -182,7 +272,38 @@ def main():
             save_json(OUTPUT_FILE, result)
             print(f"Saved grouped reviews to {OUTPUT_FILE}")
             print(f"Saved prompt to {PROMPT_FILE}")
-            return
+            persona_prompt = build_persona_prompt(result)
+            raw_persona_output = ""
+
+            for persona_attempt in range(1, 6):
+                print(f"Generating personas... attempt {persona_attempt}/5")
+                raw_persona_output = call_groq(persona_prompt)
+
+                try:
+                    persona_result = parse_model_json(raw_persona_output)
+                    validate_personas(persona_result, result)
+                    save_json(PERSONAS_OUTPUT_FILE, persona_result)
+                    print(f"Saved personas to {PERSONAS_OUTPUT_FILE}")
+                    return
+                except Exception as pe:
+                    with open("personas/personas_auto_raw_output.txt", "w", encoding="utf-8") as f:
+                        f.write(raw_persona_output)
+
+                    print(f"Persona validation failed: {pe}")
+                    persona_prompt += f"""
+
+Previous output failed validation with this error:
+{str(pe)}
+
+Try again.
+Return JSON only.
+Generate exactly one persona per review group.
+Use only valid group IDs and evidence review IDs from the groups.
+"""
+                    time.sleep(2)
+
+            raise RuntimeError("Persona generation failed after 5 attempts.")
+            
         except Exception as e:
             last_error = e
             with open("data/review_groups_auto_raw_output.txt", "w", encoding="utf-8") as f:
