@@ -2,14 +2,113 @@
   "tests": [
     {
       "test_id": "T_auto_1",
-      "requirement_id": "FR_auto_1",
-      "scenario": "Logging a workout without crashing",
+      "requirement_id": "FR1",
+      "scenario": "First-time user accesses the app",
       "steps": [
-        "Open the workout logging screen",
-        "Enter workout details",
-        "Submit the workout"
+        "Launch the Wysa app for the first time",
+        "Observe the initial interface presented to the user",
+        "Verify the interface elements"
       ],
-      "expected_result": "The workout is saved successfully and the application remains stable."
+      "expected_result": "The user is presented with a calming and empathetic interface that invites them to share their feelings."
+    },
+    {
+      "test_id": "T_auto_2",
+      "requirement_id": "FR2",
+      "scenario": "User interacts with the app while experiencing anxiety or stress",
+      "steps": [
+        "Simulate a user experiencing anxiety or stress",
+        "Interact with the app's emotional support resources",
+        "Verify the list of coping strategies and resources provided"
+      ],
+      "expected_result": "The user is provided with a list of coping strategies and resources to help manage their emotions."
+    },
+    {
+      "test_id": "T_auto_3",
+      "requirement_id": "FR3",
+      "scenario": "User accesses their progress tracking feature",
+      "steps": [
+        "Log in to the app",
+        "Access the progress tracking feature",
+        "Verify the graph or chart showing emotional state over time"
+      ],
+      "expected_result": "The user can view a graph or chart showing their emotional state over time."
+    },
+    {
+      "test_id": "T_auto_4",
+      "requirement_id": "FR4",
+      "scenario": "User submits a report or feedback",
+      "steps": [
+        "Simulate a user experiencing an issue with the app",
+        "Submit a report or feedback",
+        "Verify the response or acknowledgement received"
+      ],
+      "expected_result": "The user receives a response or acknowledgement within a specified timeframe."
+    },
+    {
+      "test_id": "T_auto_5",
+      "requirement_id": "FR5",
+      "scenario": "User accesses the app's resource library",
+      "steps": [
+        "Log in to the app",
+        "Access the resource library",
+        "Verify the availability of relevant and reliable information on various mental health subjects"
+      ],
+      "expected_result": "The user can find relevant and reliable information on various mental health subjects."
+    },
+    {
+      "test_id": "T_auto_6",
+      "requirement_id": "FR6",
+      "scenario": "User sets a mental wellness goal",
+      "steps": [
+        "Log in to the app",
+        "Access the goal-setting feature",
+        "Verify the creation and tracking of a specific, measurable goal"
+      ],
+      "expected_result": "The user can create and track a specific, measurable goal."
+    },
+    {
+      "test_id": "T_auto_7",
+      "requirement_id": "FR7",
+      "scenario": "User shares sensitive information",
+      "steps": [
+        "Simulate a user sharing sensitive information",
+        "Verify the encryption and protection of user data",
+        "Check for unauthorized access"
+      ],
+      "expected_result": "The user's data is encrypted and protected from unauthorized access."
+    },
+    {
+      "test_id": "T_auto_8",
+      "requirement_id": "FR8",
+      "scenario": "User accesses a support feature",
+      "steps": [
+        "Log in to the app",
+        "Access a support feature",
+        "Verify the availability of self-paced activities and exercises"
+      ],
+      "expected_result": "The user can choose from a variety of self-paced activities and exercises."
+    },
+    {
+      "test_id": "T_auto_9",
+      "requirement_id": "FR9",
+      "scenario": "User accesses the community feature",
+      "steps": [
+        "Log in to the app",
+        "Access the community feature",
+        "Verify the engagement with others who have similar experiences and challenges"
+      ],
+      "expected_result": "The user can engage with others who have similar experiences and challenges."
+    },
+    {
+      "test_id": "T_auto_10",
+      "requirement_id": "FR10",
+      "scenario": "New user accesses the app's navigation menu",
+      "steps": [
+        "Launch the Wysa app",
+        "Access the app's navigation menu",
+        "Verify the ease of finding and accessing main features and functions"
+      ],
+      "expected_result": "The user can easily find and access the app's main features and functions."
     }
   ]
 }
