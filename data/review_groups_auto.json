@@ -2,11 +2,92 @@
   "groups": [
     {
       "group_id": "A1",
-      "theme": "Workout logging issues",
-      "review_ids": ["rev_12", "rev_33", "rev_41", "rev_92"],
+      "theme": "Emotional Support and Comfort",
+      "review_ids": [
+        "375717b4-1c62-4b58-b8e2-ca556fd1b06d",
+        "05a3b692-2ae8-47ae-8f0e-0f13ea35bceb",
+        "2e3b587a-b75d-4e1f-ab23-39f1f1c4d0f8",
+        "4444ea4f-a45d-46d2-9ea2-e3700fea4f45",
+        "53b8feca-f39e-4191-a8f8-0775fe11aab4"
+      ],
       "example_reviews": [
-        "The app crashes whenever I try to log a run.",
-        "Logging workouts causes the app to freeze."
+        "more like my good friend.. light of my loneliness...",
+        "it really makes me feel great that I can move on now.",
+        "Wysa helped me get better! thanks to wysa I'm feeling good, yesterday was bad, but I smiled downloading wysa!",
+        "It's even better than I imagine",
+        "always felt this was an amazing app. the fact you don't need to put in any information except a nickname makes it feel like I can really write down what's bothering me."
+      ]
+    },
+    {
+      "group_id": "A2",
+      "theme": "Anxiety and Stress Relief",
+      "review_ids": [
+        "acb200f9-a748-4f28-9cd1-1d7918617197",
+        "241724da-c8b7-4ab8-b29e-d972d81fbc40",
+        "d35aa3b6-a80e-4d7c-a70a-1b9b962574be",
+        "7b87736c-6a24-4ab4-8faf-93d9a71ab306",
+        "f71d3fda-94df-4944-86d1-e4cc33ed074c"
+      ],
+      "example_reviews": [
+        "this app help calm me during anxiety and is definitely one of the better self care apps",
+        "it relieves my anxiety, overall it's a really good app and it listens well",
+        "Even the chat bot wysa is helpful alot of times I ask wysa questions an it helps me out alot...I was dealing with stress in my head an it helped me to redirect my thoughts to positivity",
+        "This really help me overcome my overthinking and anxiety, by having someone to talk to, it makes me feels so much better. Thank you so much for creating this app!",
+        "I have anxiety and I'm hard on myself and within just one night I feel like a weight has been listed just by talking to the AI about a few different subjects and doing some breathing exercises! I really love this app"
+      ]
+    },
+    {
+      "group_id": "A3",
+      "theme": "Appreciation and Positive Experience",
+      "review_ids": [
+        "42051e49-40c4-4f20-9def-8ecc1f231c06",
+        "6682a523-8092-4513-ac8c-cb52265a4a1b",
+        "5adce07c-7c17-42ef-af24-2f8912047036",
+        "2af00438-38d9-43a6-8482-3e894b67fd65",
+        "863e210a-e898-4f1c-81cc-3fd584999e52"
+      ],
+      "example_reviews": [
+        "thank you for developing this app i am really thankfull to you",
+        "By asking the right questions, wysa helps me to unclutter my thoughts and understand what the main issues are so that I could move forward.",
+        "it actually helps me feel better! very useful to vent to.",
+        "thanks for helping me,thank you very much..",
+        "Woah, just 7MB for a life-saving bot? Wysa has helped me extremely and I really appreciate it!"
+      ]
+    },
+    {
+      "group_id": "A4",
+      "theme": "Critical and Negative Feedback",
+      "review_ids": [
+        "6a6cb8ef-0594-4e2d-bdb3-977c4de2b775",
+        "243847c7-aaf1-4918-b163-e49851686aea",
+        "2bf6681e-1e37-46bb-baa6-d95eb117e9de",
+        "389a03e0-483c-4fa0-966b-70e1246a3345",
+        "808e4683-1b67-4aba-be8d-59cc78d8a700"
+      ],
+      "example_reviews": [
+        "this app not suitable for someone who as a real mental fatigue, instead of helping, accompany, or giving suggestion, it will just keep pushing to think think and think. instead of understanding our condition, it just make us trying to understand how the bot works. i dont even know why people give it 5 stars (?)",
+        "Intensely dystopian that this exists, talk to your friends please. Talk to anybody, talk to a PERSON.",
+        "Doesn't acknowledge anything I say and has its own random conversation with itself. Couldn't even call it functional. Terrible app.",
+        "The app deserves 100 stars. Customer service refused to speak to me. Live support team won't speak to me. I had important questions to ask. I left them emails and they ignored me. So customer service gets 1 star for flagrantly ignoring me.",
+        "Not impressed with this at all, the exercises were all simple and not very helpful and the dialogue was full of glitches and bugs with the AI simply failing to understand what was written and apparently only capable of churning out a few stock responses. There are much better apps and options out there."
+      ]
+    },
+    {
+      "group_id": "A5",
+      "theme": "Depression and Mental Health Recovery",
+      "review_ids": [
+        "f3be92ac-108c-42ec-bfcc-3e26c9585cc7",
+        "1579534a-8a85-42e1-9287-cf0382b13157",
+        "e7aeb564-e41e-48a2-8d56-3fa7cc53571c",
+        "970bb152-f467-4186-b957-8aab2158add8",
+        "2046e951-697a-480a-87be-9b642458ee31"
+      ],
+      "example_reviews": [
+        "I am slowly recovering from mental breakdown, but this app is really helpful. I am recommending those who have the same feeling as I had.",
+        "this helped me with my depression and mental health so much! this is the best app I've ever had!",
+        "it's a really helpful app for people with suicide thoughts and self harm urges. definitely recommend",
+        "my comforter , i love wysa . its kinda lifesaver",
+        "Helps with depression and anxiety. Offers to give you a coach that will help you. I highly recommend"
       ]
     }
   ]
