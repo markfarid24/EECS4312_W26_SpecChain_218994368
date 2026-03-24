@@ -5,11 +5,11 @@ import re
 from pathlib import Path
 
 REVIEWS_CLEAN = "data/reviews_clean.jsonl"
-REVIEW_GROUPS_AUTO = "data/review_groups_auto.json"
-PERSONAS_AUTO = "personas/personas_auto.json"
-SPEC_AUTO = "spec/spec_auto.md"
-TESTS_AUTO = "tests/tests_auto.json"
-OUTPUT_FILE = "metrics/metrics_auto.json"
+REVIEW_GROUPS = "data/review_groups_hybrid.json"
+PERSONAS = "personas/personas_hybrid.json"
+SPEC = "spec/spec_hybrid.md"
+TESTS = "tests/tests_hybrid.json"
+OUTPUT_FILE = "metrics/metrics_hybrid.json"
 
 AMBIGUOUS_TERMS = {
     "easy", "better", "user-friendly", "fast", "quick", "simple",
@@ -38,20 +38,34 @@ def load_text(path):
 
 
 def count_requirements(spec_text):
-    return len(re.findall(r"Requirement ID:\s*(FR\d+)", spec_text))
+    return len(re.findall(r"Requirement ID:\s*", spec_text, flags=re.IGNORECASE))
 
 
 def extract_requirements(spec_text):
-    pattern = re.compile(
-        r"Requirement ID:\s*(FR\d+)\s*\n"
-        r".*?- Description:\s*(.*)\n"
-        r".*?- Source Persona:\s*(.*)\n"
-        r".*?- Traceability:\s*(.*)\n"
-        r".*?- Acceptance Criteria:\s*(.*?)(?=\nRequirement ID:|\Z)",
-        re.DOTALL
-    )
-    return pattern.findall(spec_text)
+    chunks = re.split(r"(?=Requirement ID:\s*)", spec_text, flags=re.IGNORECASE)
+    extracted = []
 
+    for chunk in chunks:
+        chunk = chunk.strip()
+        if not chunk.startswith("Requirement ID:"):
+            continue
+
+        req_id_match = re.search(r"Requirement ID:\s*([^\n]+)", chunk, flags=re.IGNORECASE)
+        desc_match = re.search(r"(?:-|\u2022)\s*Description:\s*\[?(.*?)\]?\s*(?:\n|$)", chunk, flags=re.IGNORECASE)
+        source_match = re.search(r"(?:-|\u2022)\s*Source Persona:\s*\[?(.*?)\]?\s*(?:\n|$)", chunk, flags=re.IGNORECASE)
+        trace_match = re.search(r"(?:-|\u2022)\s*Traceability:\s*\[?(.*?)\]?\s*(?:\n|$)", chunk, flags=re.IGNORECASE)
+        acc_match = re.search(r"(?:-|\u2022)\s*Acceptance Criteria:\s*\[?(.*?)\]?\s*(?:\n|$)", chunk, flags=re.IGNORECASE)
+
+        if req_id_match and desc_match and source_match and trace_match and acc_match:
+            extracted.append((
+                req_id_match.group(1).strip(),
+                desc_match.group(1).strip(),
+                source_match.group(1).strip(),
+                trace_match.group(1).strip(),
+                acc_match.group(1).strip()
+            ))
+
+    return extracted
 
 def has_ambiguous_language(text):
     lowered = text.lower()
@@ -61,10 +75,10 @@ def has_ambiguous_language(text):
 def main():
     dataset_size = count_jsonl_lines(REVIEWS_CLEAN)
 
-    groups_data = load_json(REVIEW_GROUPS_AUTO)
-    personas_data = load_json(PERSONAS_AUTO)
-    tests_data = load_json(TESTS_AUTO)
-    spec_text = load_text(SPEC_AUTO)
+    groups_data = load_json(REVIEW_GROUPS)
+    personas_data = load_json(PERSONAS)
+    tests_data = load_json(TESTS)
+    spec_text = load_text(SPEC)
 
     groups = groups_data.get("groups", [])
     personas = personas_data.get("personas", [])
@@ -82,11 +96,11 @@ def main():
     review_coverage_ratio = round(len(unique_review_ids) / dataset_size, 4) if dataset_size else 0.0
 
     group_to_persona_links = len(personas)
-    persona_to_requirement_links = len(re.findall(r"- Source Persona:", spec_text))
+    persona_to_requirement_links = len(re.findall(r"Source Persona:", spec_text, flags=re.IGNORECASE))
     requirement_to_test_links = len({t["requirement_id"] for t in tests if "requirement_id" in t})
     traceability_links = group_to_persona_links + persona_to_requirement_links + requirement_to_test_links
 
-    traced_requirements = len(re.findall(r"- Source Persona:", spec_text))
+    traced_requirements = persona_to_requirement_links
     traceability_ratio = round(traced_requirements / requirements_count, 4) if requirements_count else 0.0
 
     tested_requirements = len({t["requirement_id"] for t in tests if "requirement_id" in t})
@@ -101,7 +115,7 @@ def main():
     ambiguity_ratio = round(ambiguous_count / requirements_count, 4) if requirements_count else 0.0
 
     result = {
-        "pipeline": "automated",
+        "pipeline": "hybrid",
         "dataset_size": dataset_size,
         "persona_count": persona_count,
         "requirements_count": requirements_count,

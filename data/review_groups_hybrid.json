@@ -1,13 +1,83 @@
-{  "groups": [
+{
+  "groups": [
     {
       "group_id": "H1",
-      "theme": "Workout logging failures during activity tracking",
-      "review_ids": ["rev_12", "rev_33", "rev_41", "rev_92"],
-      "example_reviews": [
-        "The app crashes whenever I try to log a run.",
-        "Logging workouts causes the app to freeze."
+      "theme": "Users wanting a safe, companion-like source of emotional support",
+      "review_ids": [
+        "375717b4-1c62-4b58-b8e2-ca556fd1b06d",
+        "05a3b692-2ae8-47ae-8f0e-0f13ea35bceb",
+        "2e3b587a-b75d-4e1f-ab23-39f1f1c4d0f8",
+        "4444ea4f-a45d-46d2-9ea2-e3700fea4f45",
+        "53b8feca-f39e-4191-a8f8-0775fe11aab4"
       ],
-      "notes": "Removed one unrelated review about login problems from the original automated group."
+      "example_reviews": [
+        "more like my good friend.. light of my loneliness...",
+        "it really makes me feel great that I can move on now."
+      ],
+      "notes": "I refined the automated theme from a broad positive-emotion label to a clearer user-situation theme focused on companion-like support, comfort, and privacy."
+    },
+    {
+      "group_id": "H2",
+      "theme": "Users seeking anxiety and stress relief",
+      "review_ids": [
+        "acb200f9-a748-4f28-9cd1-1d7918617197",
+        "241724da-c8b7-4ab8-b29e-d972d81fbc40",
+        "d35aa3b6-a80e-4d7c-a70a-1b9b962574be",
+        "7b87736c-6a24-4ab4-8faf-93d9a71ab306",
+        "e207de73-34c9-4b79-8b33-c5ce95195158"
+      ],
+      "example_reviews": [
+        "this app help calm me during anxiety and is definitely one of the better self care apps",
+        "it relieves my anxiety, overall it's a really good app and it listens well"
+      ],
+      "notes": "I kept this automated group mostly unchanged because the theme is coherent and the included reviews consistently focus on anxiety, stress, overthinking, and coping support."
+    },
+   {
+      "group_id": "H3",
+      "theme": "Users expressing strong appreciation for the app’s helpfulness and accessibility",
+      "review_ids": [
+        "42051e49-40c4-4f20-9def-8ecc1f231c06",
+        "6682a523-8092-4513-ac8c-cb52265a4a1b",
+        "a43837f0-8857-4beb-b5f5-fe2bbba2c7c3",
+        "863e210a-e898-4f1c-81cc-3fd584999e52"
+      ],
+      "example_reviews": [
+        "thank you for developing this app i am really thankfull to you",
+        "Woah, just 7MB for a life-saving bot? Wysa has helped me extremely and I really appreciate it!"
+      ],
+      "notes": "I removed review_id 05d4b308-6c76-4d98-9f90-79cda89e2f5f because it describes a login/access problem and does not fit an appreciation theme. The remaining reviews consistently express gratitude, usefulness, and low-friction access."
+    },
+    {
+      "group_id": "H4",
+      "theme": "Users frustrated by AI quality, customer support, or pricing",
+      "review_ids": [
+        "6a6cb8ef-0594-4e2d-bdb3-977c4de2b775",
+        "243847c7-aaf1-4918-b163-e49851686aea",
+        "2bf6681e-1e37-46bb-baa6-d95eb117e9de",
+        "389a03e0-483c-4fa0-966b-70e1246a3345",
+        "56b34d1e-932f-4799-8163-613efc1bd4ce"
+      ],
+      "example_reviews": [
+        "Doesn't acknowledge anything I say and has its own random conversation with itself. Couldn't even call it functional. Terrible app.",
+        "doesn't really seem to be a fair price tbh, it's a extremely high sub cost..."
+      ],
+      "notes": "I changed the automated theme title into specific dissatisfaction themes that are more useful for later requirements and testing."
+    },
+    {
+      "group_id": "H5",
+      "theme": "Users reporting meaningful mental-health improvement and recovery",
+      "review_ids": [
+        "f3be92ac-108c-42ec-bfcc-3e26c9585cc7",
+        "1579534a-8a85-42e1-9287-cf0382b13157",
+        "e7aeb564-e41e-48a2-8d56-3fa7cc53571c",
+        "2d97b5bb-f962-4a1c-9bb1-37b209742051",
+        "f71d3fda-94df-4944-86d1-e4cc33ed074c"
+      ],
+      "example_reviews": [
+        "I am slowly recovering from mental breakdown, but this app is really helpful.",
+        "this helped me with my depression and mental health so much!"
+      ],
+      "notes": "I changed the automated theme title to fit more into the project which will be used later for testing."
     }
   ]
 }

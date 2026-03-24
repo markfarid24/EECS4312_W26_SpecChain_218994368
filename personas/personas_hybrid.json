@@ -2,30 +2,148 @@
   "personas": [
     {
       "id": "P_hybrid_1",
-      "name": "Frequent Fitness Logger",
-      "description": "A user who depends on the app for regular workout tracking and expects logging to work reliably during or immediately after exercise.",
+      "name": "Private Emotional Support Seeker",
+      "description": "A user who turns to Wysa as a safe, companion-like space to vent, feel heard, and receive emotional support without fear of judgment.",
       "derived_from_group": "H1",
       "goals": [
-        "Log workouts quickly",
-        "Track activities without interruption"
+        "Feel emotionally supported during difficult moments",
+        "Express feelings privately and safely",
+        "Use the app as a comforting companion when human support is unavailable"
       ],
       "pain_points": [
-        "The app crashes while saving workouts",
-        "Previously entered activity data may disappear"
+        "Feels lonely or emotionally overwhelmed",
+        "May not have someone available to talk to right away",
+        "Needs comfort without feeling judged"
       ],
       "context": [
-        "Using the app during exercise sessions",
-        "Using the app outdoors or while moving"
+        "Uses the app alone during emotionally difficult moments",
+        "Often relies on the app when immediate human support is unavailable"
       ],
       "constraints": [
-        "Workout logging must complete without crashing",
-        "Saved workout data must persist"
+        "The app must maintain a supportive and non-judgmental tone",
+        "Interactions should feel private and emotionally safe"
       ],
       "evidence_reviews": [
-        "rev_12",
-        "rev_41"
+        "375717b4-1c62-4b58-b8e2-ca556fd1b06d",
+        "05a3b692-2ae8-47ae-8f0e-0f13ea35bceb"
       ],
-      "notes": "Refined the persona description and removed an unsupported assumption about synchronization."
+      "notes": "I changed from the automated persona to remove vague wording and align more closely with the companion-like support theme in H1."
+    },
+    {
+      "id": "P_hybrid_2",
+      "name": "Anxiety and Stress Relief User",
+      "description": "A user who relies on Wysa to reduce anxiety, calm stress, manage overthinking, and access coping support during difficult moments.",
+      "derived_from_group": "H2",
+      "goals": [
+        "Reduce anxiety and stress",
+        "Access coping tools quickly",
+        "Feel calmer and more in control of thoughts"
+      ],
+      "pain_points": [
+        "Experiences anxiety spikes and emotional overwhelm",
+        "May struggle with stress, overthinking, or tension",
+        "Needs support that is available right away"
+      ],
+      "context": [
+        "Uses the app during stressful situations or anxious episodes",
+        "Often opens the app for quick self-help support"
+      ],
+      "constraints": [
+        "Support should be quick to access",
+        "Coping tools should be understandable during distress"
+      ],
+      "evidence_reviews": [
+        "acb200f9-a748-4f28-9cd1-1d7918617197",
+        "241724da-c8b7-4ab8-b29e-d972d81fbc40"
+      ],
+      "notes": "I kept the core automated idea but made the persona more specific and traceable to anxiety."
+    },
+    {
+      "id": "P_hybrid_3",
+      "name": "Grateful User Who Values Accessibility",
+      "description": "A user who values Wysa because it feels helpful, accessible, lightweight, and easy to turn to during moments of need.",
+      "derived_from_group": "H3",
+      "goals": [
+        "Use a helpful mental-health support tool with low friction",
+        "Access support quickly and reliably",
+        "Continue using an app that feels worthwhile and approachable"
+      ],
+      "pain_points": [
+        "Needs support that feels available and usable without much setup",
+        "May be discouraged by tools that feel heavy or complicated",
+        "Wants continued value from the app experience"
+      ],
+      "context": [
+        "Uses the app as an easy-to-access support tool",
+        "Appreciates simple access and the sense that the app is genuinely helpful"
+      ],
+      "constraints": [
+        "The app should remain lightweight and accessible",
+        "The user experience should not add unnecessary barriers"
+      ],
+      "evidence_reviews": [
+        "42051e49-40c4-4f20-9def-8ecc1f231c06",
+        "863e210a-e898-4f1c-81cc-3fd584999e52"
+      ],
+      "notes": "I refined from a generic positive persona into one grounded in appreciation, and accessibility."
+    },
+    {
+      "id": "P_hybrid_4",
+      "name": "User Frustrated by AI Quality, Support, or Pricing",
+      "description": "A user who becomes dissatisfied when Wysa feels unresponsive, low-quality, overpriced, or unsupported by helpful customer service.",
+      "derived_from_group": "H4",
+      "goals": [
+        "Receive useful and coherent support from the app",
+        "Get fair value for paid features",
+        "Be able to report issues and receive meaningful help"
+      ],
+      "pain_points": [
+        "Encounters weak or irrelevant AI responses",
+        "Feels pricing may be too high for the value received",
+        "May struggle to get useful customer support"
+      ],
+      "context": [
+        "Uses the app long enough to notice AI limitations or pricing frustration",
+        "May compare actual app value against expectations for paid mental-health support"
+      ],
+      "constraints": [
+        "Responses should feel functional and relevant",
+        "Pricing and support experience should feel justified and transparent"
+      ],
+      "evidence_reviews": [
+        "243847c7-aaf1-4918-b163-e49851686aea",
+        "56b34d1e-932f-4799-8163-613efc1bd4ce"
+      ],
+      "notes": "I tried to combine the automated dissatisfaction cluster into a grounded persona focused on AI quality, support responsiveness, and pricing concerns."
+    },
+    {
+      "id": "P_hybrid_5",
+      "name": "User Experiencing Recovery and Emotional Improvement",
+      "description": "A user who uses Wysa as part of a broader mental-health recovery journey and values the app when it helps improve mood, coping, and emotional stability.",
+      "derived_from_group": "H5",
+      "goals": [
+        "Support mental-health recovery over time",
+        "Improve mood and emotional stability",
+        "Use the app as a helpful part of ongoing coping and recovery"
+      ],
+      "pain_points": [
+        "May be recovering from serious emotional distress or depression",
+        "Needs support that feels meaningful over time",
+        "Wants progress and improvement rather than temporary distraction"
+      ],
+      "context": [
+        "Uses the app repeatedly during a recovery journey",
+        "Sees the app as one source of support for improving mental well-being"
+      ],
+      "constraints": [
+        "Support should feel consistent and genuinely helpful",
+        "The app should fit into longer-term emotional improvement and recovery use"
+      ],
+      "evidence_reviews": [
+        "f3be92ac-108c-42ec-bfcc-3e26c9585cc7",
+        "1579534a-8a85-42e1-9287-cf0382b13157"
+      ],
+      "notes": "I changed the automated recovery persona into one explicitly grounded in H5’s recovery and mental-health improvement evidence."
     }
   ]
 }
