@@ -11,12 +11,12 @@ try:
     from nltk.corpus import stopwords
     from nltk.stem import WordNetLemmatizer
 except ImportError:
-    raise ImportError("Please install nltk first: pip install nltk")
+    raise ImportError("Please install nltk first!")
 
 try:
     from num2words import num2words
 except ImportError:
-    raise ImportError("Please install num2words first: pip install num2words")
+    raise ImportError("Please install num2words first!")
 
 
 INPUT_FILE = "data/reviews_raw.jsonl"
@@ -165,7 +165,7 @@ def main():
             "removed stop words",
             "lemmatized reviews"
         ],
-        "notes": "Target app assigned by family-name initial. Review extraction performed on Google Play. If store/tool limits existed, maximum obtainable reviews were collected."
+        "notes": "Reviews come from Google Play."
     }
 
     with open(METADATA_FILE, "w", encoding="utf-8") as f:
