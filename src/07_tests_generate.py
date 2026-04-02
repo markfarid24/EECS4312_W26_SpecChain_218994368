@@ -5,29 +5,23 @@ import os
 import re
 import time
 from pathlib import Path
-
 import requests
 
 MODEL_NAME = "meta-llama/llama-4-scout-17b-16e-instruct"
 SPEC_INPUT = "spec/spec_auto.md"
 TESTS_OUTPUT = "tests/tests_auto.json"
-
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-
 
 def load_text(path):
     with open(path, "r", encoding="utf-8") as f:
         return f.read()
 
-
 def extract_requirement_ids(spec_text):
     return re.findall(r"Requirement ID:\s*(FR\d+)", spec_text)
-
 
 def call_groq(prompt):
     if not GROQ_API_KEY:
         raise RuntimeError("GROQ_API_KEY is not set.")
-
     url = "https://api.groq.com/openai/v1/chat/completions"
     headers = {
         "Authorization": f"Bearer {GROQ_API_KEY}",
@@ -63,7 +57,6 @@ def call_groq(prompt):
 
     raise RuntimeError(f"Groq API failed after 5 attempts: {last_error}")
 
-
 def parse_model_json(text):
     text = text.strip()
     if text.startswith("```"):
@@ -72,14 +65,11 @@ def parse_model_json(text):
             text = text[4:].strip()
     return json.loads(text)
 
-
 def build_tests_prompt(spec_text):
     prompt = f"""
 You are helping with requirements engineering for a mental health app called Wysa.
-
 Task:
 Read the following requirements specification and generate at least one validation test scenario for each requirement.
-
 Return ONLY valid JSON in this exact structure:
 {{
   "tests": [
@@ -111,7 +101,6 @@ Specification:
 {spec_text}
 """.strip()
     return prompt
-
 
 def validate_tests(result, valid_requirement_ids):
     if "tests" not in result or not isinstance(result["tests"], list):
@@ -154,25 +143,19 @@ def validate_tests(result, valid_requirement_ids):
     if missing:
         raise ValueError(f"Missing tests for requirement IDs: {sorted(missing)}")
 
-
 def save_json(path, data):
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-
 def main():
     spec_text = load_text(SPEC_INPUT)
     requirement_ids = extract_requirement_ids(spec_text)
-
     if not requirement_ids:
         raise RuntimeError("No requirement IDs found in spec/spec_auto.md")
-
     prompt = build_tests_prompt(spec_text)
-
     print(f"Using model: {MODEL_NAME}")
     print(f"Found {len(requirement_ids)} requirements in spec")
-
     last_error = None
     for attempt in range(1, 6):
         print(f"Generating tests... attempt {attempt}/5")
@@ -203,7 +186,6 @@ Use only valid requirement IDs from the specification.
             time.sleep(2)
 
     raise RuntimeError(f"Test generation failed after 5 attempts. Last error: {last_error}")
-
 
 if __name__ == "__main__":
     main()
