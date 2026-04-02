@@ -11,9 +11,7 @@ import requests
 MODEL_NAME = "meta-llama/llama-4-scout-17b-16e-instruct"
 PERSONAS_INPUT = "personas/personas_auto.json"
 SPEC_OUTPUT = "spec/spec_auto.md"
-
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-
 
 def load_json(path):
     with open(path, "r", encoding="utf-8") as f:
@@ -55,9 +53,7 @@ def call_groq(prompt):
             last_error = e
             print(f"Groq request error on attempt {attempt}/5: {e}")
             time.sleep(3)
-
     raise RuntimeError(f"Groq API failed after 5 attempts: {last_error}")
-
 
 def build_spec_prompt(personas_json):
     prompt = f"""
@@ -96,14 +92,12 @@ Personas:
 """.strip()
     return prompt
 
-
 def validate_spec(text, personas_json):
     ids = re.findall(r"Requirement ID:\s*(FR\d+)", text)
     if len(ids) != 10:
         raise ValueError(f"Expected 10 requirements, found {len(ids)}")
     if ids != [f"FR{i}" for i in range(1, 11)]:
         raise ValueError("Requirements must be FR1 to FR10 in order.")
-
     persona_names = {p["name"] for p in personas_json["personas"]}
     source_personas = re.findall(r"- Source Persona:\s*(?:\[(.*?)\]|(.*))", text)
     source_personas = [a if a else b.strip() for a, b in source_personas]
@@ -112,30 +106,24 @@ def validate_spec(text, personas_json):
     for sp in source_personas:
         if sp not in persona_names:
             raise ValueError(f"Unknown persona referenced: {sp}")
-
     trace_lines = re.findall(r"- Traceability:\s*(?:\[(.*?)\]|(.*))", text)
     trace_lines = [a if a else b.strip() for a, b in trace_lines]
     if len(trace_lines) != 10:
         raise ValueError("Each requirement must include Traceability.")
-
     acceptance = re.findall(r"- Acceptance Criteria:\s*(?:\[(.*?)\]|(.*))", text)
     acceptance = [a if a else b.strip() for a, b in acceptance]
     if len(acceptance) != 10:
         raise ValueError("Each requirement must include Acceptance Criteria.")
-
 
 def save_text(path, text):
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         f.write(text)
 
-
 def main():
     personas_json = load_json(PERSONAS_INPUT)
     prompt = build_spec_prompt(personas_json)
-
     print(f"Using model: {MODEL_NAME}")
-
     last_error = None
     for attempt in range(1, 6):
         print(f"Generating spec... attempt {attempt}/5")
@@ -153,18 +141,14 @@ def main():
 
             print(f"Spec validation failed: {e}")
             prompt += f"""
-
 Previous output failed validation with this error:
 {str(e)}
-
 Try again.
 Return plain text only.
 Generate exactly 10 requirements in the required format.
 """
             time.sleep(2)
-
     raise RuntimeError(f"Spec generation failed after 5 attempts. Last error: {last_error}")
-
 
 if __name__ == "__main__":
     main()
