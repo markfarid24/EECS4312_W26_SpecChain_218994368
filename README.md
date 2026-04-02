@@ -16,9 +16,9 @@ The dataset was collected from the Google Play Store using the `google-play-scra
 
 #### Dataset
 
-\- `reviews\_raw.jsonl` contains the collected raw Google Play reviews for Wysa.
+\- `reviews_raw.jsonl` contains the collected raw Google Play reviews for Wysa.
 
-\- `reviews\_clean.jsonl` contains the cleaned and preprocessed review dataset.
+\- `reviews_clean.jsonl` contains the cleaned and preprocessed review dataset.
 
 \- The original raw dataset contains 2000 reviews.
 
@@ -48,13 +48,14 @@ The dataset was collected from the Google Play Store using the `google-play-scra
 
 #### How to Run
 
-1\. Open the project folder:
+1\. Clone and open the project in command prompt:
+git clone https://github.com/markfarid24/EECS4312_W26_SpecChain_218994368.git
 
-cd /d C:\\Users\\markf\\EECS4312\_W26\_SpecChain\_218994368
+cd EECS4312_W26_SpecChain_218994368
 
 
 
-2\. Install required packages
+2\. Install required packages:
 
 pip install google-play-scraper nltk num2words requests
 
