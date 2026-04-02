@@ -37,22 +37,22 @@ REQUIRED_FILES = [
 ROOT = Path(__file__).resolve().parent.parent
 
 def main():
-    print("Checking repository structure...")
+    print("Checking the structure of the repo...")
     missing = []
     for rel_path in REQUIRED_FILES:
         path = ROOT / rel_path
         if path.exists():
-            print(f"{rel_path} found")
+            print(f"{rel_path} found!")
         else:
-            print(f"{rel_path} MISSING")
+            print(f"{rel_path} MISSING!")
             missing.append(rel_path)
     if missing:
-        print("\nRepository validation incomplete")
-        print("Missing files:")
+        print("\nRepo validation is incomplete")
+        print("Missing these files:")
         for m in missing:
             print(f"- {m}")
     else:
-        print("\nRepository validation complete")
+        print("\nRepository validation complete!")
 
 if __name__ == "__main__":
     main()
