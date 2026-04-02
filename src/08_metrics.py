@@ -115,7 +115,7 @@ def main():
     ambiguity_ratio = round(ambiguous_count / requirements_count, 4) if requirements_count else 0.0
 
     result = {
-        "pipeline": "hybrid",
+        "pipeline": "automated",
         "dataset_size": dataset_size,
         "persona_count": persona_count,
         "requirements_count": requirements_count,
