@@ -13,13 +13,10 @@ INPUT_FILE = "data/reviews_clean.jsonl"
 OUTPUT_FILE = "data/review_groups_auto.json"
 PROMPT_FILE = "prompts/prompt_auto.json"
 PERSONAS_OUTPUT_FILE = "personas/personas_auto.json"
-
 MAX_REVIEWS_FOR_GROUPING = 150
 TARGET_GROUPS = 5
 REVIEWS_PER_GROUP_MIN = 5
-
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-
 
 def load_reviews(path):
     reviews = []
@@ -30,7 +27,6 @@ def load_reviews(path):
                 reviews.append(json.loads(line))
     return reviews
 
-
 def build_prompt(review_items):
     review_lines = []
     for r in review_items:
@@ -38,7 +34,6 @@ def build_prompt(review_items):
         text = r.get("review_text", "")
         score = r.get("score", "")
         review_lines.append(f'- review_id: "{review_id}" | score: {score} | text: "{text}"')
-
     prompt = f"""
 You are helping with requirements engineering analysis for a mental health app called Wysa.
 
@@ -48,11 +43,9 @@ Each group must:
 - represent a clear common theme or user situation
 - contain at least {REVIEWS_PER_GROUP_MIN} review_ids
 - contain no fewer than the minimum under any circumstance
-
 Mandatory constraint:
 - every group must have at least {REVIEWS_PER_GROUP_MIN} review_ids
 - if a possible theme has too few reviews, merge it into the most similar larger theme
-
 Return ONLY valid JSON in this exact structure:
 {{
   "groups": [
@@ -78,14 +71,11 @@ Important rules:
 Reviews:
 {chr(10).join(review_lines)}
 """.strip()
-
     return prompt
-
 
 def call_groq(prompt):
     if not GROQ_API_KEY:
         raise RuntimeError("GROQ_API_KEY is not set. Please set it in your terminal before running.")
-
     url = "https://api.groq.com/openai/v1/chat/completions"
     headers = {
         "Authorization": f"Bearer {GROQ_API_KEY}",
@@ -106,58 +96,46 @@ def call_groq(prompt):
     content = data["choices"][0]["message"]["content"]
     return content
 
-
 def parse_model_json(text):
     text = text.strip()
-
     if text.startswith("```"):
         text = text.strip("`")
         if text.startswith("json"):
             text = text[4:].strip()
-
     return json.loads(text)
-
 
 def validate_output(result, valid_ids):
     if "groups" not in result or not isinstance(result["groups"], list):
         raise ValueError("Output JSON must contain a 'groups' list.")
-
     if len(result["groups"]) != TARGET_GROUPS:
         raise ValueError(f"Expected exactly {TARGET_GROUPS} groups, got {len(result['groups'])}.")
-
     seen = set()
     for group in result["groups"]:
         if "group_id" not in group or "theme" not in group or "review_ids" not in group:
             raise ValueError("Each group must contain group_id, theme, and review_ids.")
-
         if len(group["review_ids"]) < REVIEWS_PER_GROUP_MIN:
             raise ValueError(
                 f"Group {group.get('group_id')} has fewer than {REVIEWS_PER_GROUP_MIN} review_ids."
             )
-
         for rid in group["review_ids"]:
             if rid not in valid_ids:
                 raise ValueError(f"Invalid review_id generated: {rid}")
             if rid in seen:
                 pass
             seen.add(rid)
-
         if "example_reviews" not in group or len(group["example_reviews"]) < 2:
             raise ValueError(f"Group {group.get('group_id')} must include 2 example_reviews.")
-
 
 def save_json(path, data):
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
-
+        
 def build_persona_prompt(groups_json):
     prompt = f"""
 You are helping with requirements engineering analysis for a mental health app called Wysa.
-
 Task:
 Using the review groups below, generate exactly one persona per review group.
-
 Return ONLY valid JSON in this exact structure:
 {{
   "personas": [
@@ -183,7 +161,6 @@ Rules:
 - Do not include markdown fences
 - Return JSON only
 - Make the personas realistic, distinct, and grounded in the review-group themes
-
 Review groups:
 {json.dumps(groups_json, ensure_ascii=False, indent=2)}
 """.strip()
@@ -192,17 +169,13 @@ Review groups:
 def validate_personas(result, groups_json):
     if "personas" not in result or not isinstance(result["personas"], list):
         raise ValueError("Output JSON must contain a 'personas' list.")
-
     groups = groups_json["groups"]
     if len(result["personas"]) != len(groups):
         raise ValueError("Number of personas must equal number of groups.")
-
     valid_group_ids = {g["group_id"] for g in groups}
     group_to_reviews = {g["group_id"]: set(g["review_ids"]) for g in groups}
-
     seen_persona_ids = set()
     seen_group_refs = set()
-
     for p in result["personas"]:
         required = [
             "id", "name", "description", "derived_from_group",
@@ -211,11 +184,9 @@ def validate_personas(result, groups_json):
         for field in required:
             if field not in p:
                 raise ValueError(f"Persona missing required field: {field}")
-
         if p["id"] in seen_persona_ids:
             raise ValueError(f"Duplicate persona id: {p['id']}")
         seen_persona_ids.add(p["id"])
-
         group_id = p["derived_from_group"]
         if group_id not in valid_group_ids:
             raise ValueError(f"Invalid derived_from_group: {group_id}")
@@ -240,7 +211,7 @@ def validate_personas(result, groups_json):
                 raise ValueError(
                     f"Persona {p['id']} uses evidence review {rid} not found in group {group_id}."
                 )
-
+                
 def main():
     reviews = load_reviews(INPUT_FILE)
 
@@ -249,23 +220,17 @@ def main():
     else:
         random.seed(4312)
         sampled = random.sample(reviews, MAX_REVIEWS_FOR_GROUPING)
-
     valid_ids = {r["review_id"] for r in sampled}
-
     prompt = build_prompt(sampled)
     save_json(PROMPT_FILE, {"model": MODEL_NAME, "prompt": prompt})
-
     print(f"Loaded {len(reviews)} cleaned reviews")
     print(f"Using {len(sampled)} reviews for automated grouping")
     print(f"Using model: {MODEL_NAME}")
-
     max_attempts = 5
     last_error = None
-
     for attempt in range(1, max_attempts + 1):
         print(f"Calling Groq API... attempt {attempt}/{max_attempts}")
         raw_output = call_groq(prompt)
-
         try:
             result = parse_model_json(raw_output)
             validate_output(result, valid_ids)
@@ -274,11 +239,9 @@ def main():
             print(f"Saved prompt to {PROMPT_FILE}")
             persona_prompt = build_persona_prompt(result)
             raw_persona_output = ""
-
             for persona_attempt in range(1, 6):
                 print(f"Generating personas... attempt {persona_attempt}/5")
                 raw_persona_output = call_groq(persona_prompt)
-
                 try:
                     persona_result = parse_model_json(raw_persona_output)
                     validate_personas(persona_result, result)
@@ -288,7 +251,6 @@ def main():
                 except Exception as pe:
                     with open("personas/personas_auto_raw_output.txt", "w", encoding="utf-8") as f:
                         f.write(raw_persona_output)
-
                     print(f"Persona validation failed: {pe}")
                     persona_prompt += f"""
 
@@ -301,20 +263,15 @@ Generate exactly one persona per review group.
 Use only valid group IDs and evidence review IDs from the groups.
 """
                     time.sleep(2)
-
             raise RuntimeError("Persona generation failed after 5 attempts.")
-            
         except Exception as e:
             last_error = e
             with open("data/review_groups_auto_raw_output.txt", "w", encoding="utf-8") as f:
                 f.write(raw_output)
-
             print(f"Validation failed: {e}")
             prompt += f"""
-
 Your previous output failed validation with this error:
 {str(e)}
-
 Try again and fix it.
 Rules:
 - Return exactly {TARGET_GROUPS} groups
