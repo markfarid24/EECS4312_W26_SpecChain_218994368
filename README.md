@@ -1,33 +1,86 @@
-# EECS4312_W26_SpecChain
+# EECS4312\_W26\_SpecChain\_218994368
 
-## instructions:
-Please update to include: 
-- App name
-- Data collection method
-- Original dataset
-- Final cleaned dataset
-- Exact commands to run pipeline
+Mark Farid
 
-# example
-Application: [Calm]
+## Instructions
 
-Dataset:
-- reviews_raw.jsonl contains the collected reviews.
-- reviews_clean.jsonl contains the cleaned dataset.
-- The cleaned dataset contains 842 reviews.
+### Application: \[Wysa: Mental Wellbeing AI]
 
-Repository Structure:
-- data/ contains datasets and review groups
-- personas/ contains persona files
-- spec/ contains specifications
-- tests/ contains validation tests
-- metrics/ contains all metric files
-- src/ contains executable Python scripts
-- reflection/ contains the final reflection
 
-How to Run:
-1. python src/00_validate_repo.py
-2. python src/02_clean.py
-3. python src/run_all.py
-4. Open metrics/metrics_summary.json for comparison results
+
+#### Data Collection Method
+
+The dataset was collected from the Google Play Store using the `google-play-scraper` Python package.
+
+
+
+#### Dataset
+
+\- `reviews\_raw.jsonl` contains the collected raw Google Play reviews for Wysa.
+
+\- `reviews\_clean.jsonl` contains the cleaned and preprocessed review dataset.
+
+\- The original raw dataset contains 2000 reviews.
+
+\- The final cleaned dataset contains 1650 reviews.
+
+
+
+#### Repository Structure
+
+\- `data/` contains raw reviews, cleaned reviews, metadata, and grouped review files
+
+\- `personas/` contains manual, automated, and hybrid persona files
+
+\- `spec/` contains manual, automated, and hybrid specifications
+
+\- `tests/` contains manual, automated, and hybrid validation tests
+
+\- `metrics/` contains all metrics files and the final comparison summary
+
+\- `prompts/` contains the automated prompt used for Groq-based generation
+
+\- `src/` contains the executable Python scripts
+
+\- `reflection/` contains the final reflection
+
+
+
+#### How to Run
+
+1\. Open the project folder:
+
+cd /d C:\\Users\\markf\\EECS4312\_W26\_SpecChain\_218994368
+
+
+
+2\. Install required packages
+
+pip install google-play-scraper nltk num2words requests
+
+
+
+3\. Set the Groq API key in Command Prompt:
+
+set GROQ\_API\_KEY= "paste key here"
+
+
+
+4\. Run repository validation:
+
+python src/00\_validate\_repo.py
+
+
+
+5\. Run the cleaning script directly if needed:
+
+python src/02\_clean.py
+
+
+
+6\. Run the automated pipeline from start to finish:
+
+python src/run\_all.py
+
+
 
